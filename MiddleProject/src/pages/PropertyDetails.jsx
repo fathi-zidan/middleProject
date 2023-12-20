@@ -6,6 +6,8 @@ import { MdDelete } from "react-icons/md";
 import { GrDocumentUpdate } from "react-icons/gr";
 import axios from 'axios'
 import Modal from '../components/Modal';
+import { CiCircleAlert } from "react-icons/ci";
+import ToastContextProvider, { toastContext } from '../components/ToastContext';
 
 
 
@@ -15,7 +17,8 @@ function PropertyDetails() {
     const { id } = useParams();
     // console.log(id)
     const house = houses.find((house) => house.id == id);
-    console.log(house)
+    // console.log(house)
+    const {openT} = useContext(toastContext);
 
     const [open,setOpen] = useState(false);
 
@@ -32,6 +35,17 @@ function PropertyDetails() {
           console.error('Failed to delete house:', error);
         }
       };
+
+      const handleSend = (e)=>{
+        e.preventDefault();
+        openT(
+            <div className='flex gap-2 bg-violet-900 text-white p-4 rounded-lg shadow-lg'>
+                <CiCircleAlert size={40}/>
+                <h3 className='font-bold'>Message Sent</h3>
+            </div>
+        )
+
+      }
 
     return (
         <section>
@@ -90,7 +104,7 @@ function PropertyDetails() {
                             <textarea className='border border-gray-300 focus:border-violet-700 
                             outline-none resize-none rounded w-full p-4 h-36 text-sm' placeholder='Message*' ></textarea>
                             <div className='flex-col'>
-                                <button className='bg-violet-700 hover:bg-violet-800 rounded p-4 text-sm w-full transition text-white'>Send Message</button>
+                                <button onClick={handleSend} className='bg-violet-700 hover:bg-violet-800 rounded p-4 text-sm w-full transition text-white'>Send Message</button>
                                 <button className='bg-violet-700 hover:bg-violet-800 rounded p-4 text-sm w-full transition text-white mt-2'>Call</button>
                             </div>
                         </form>

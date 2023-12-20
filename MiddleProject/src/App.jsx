@@ -13,6 +13,7 @@ import Footer from './components/Footer'
 import AddHouse from './pages/AddHouse'
 import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
+import ToastContextProvider from './components/ToastContext'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
     <BrowserRouter>
       <HouseContextProvider>
+        <ToastContextProvider>
         <div className='max-w-[1440px] mx-auto bg-white' >
           <Header />
 
@@ -34,6 +36,7 @@ function App() {
           <Footer />
 
         </div>
+        </ToastContextProvider>
       </HouseContextProvider>
     </BrowserRouter>
   )
