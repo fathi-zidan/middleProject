@@ -1,9 +1,12 @@
 import React from 'react'
 import { FaGithub, FaFacebookF, FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import { useNavigate,Link } from 'react-router-dom';
+
 
 
 function SignUp() {
+    const navigate = useNavigate();
     return (
         <section className='flex items-center justify-center' >
             <section className='max-w-[600px]  border border-gray-200 rounded-md p-8 m-4'>
@@ -27,7 +30,7 @@ function SignUp() {
 
                     <input className='border border-gray-300 focus:border-violet-700 outline-none
                             rounded  px-2 h-10 text-sm' type="text" placeholder='Password' />
-                    <button type='submit' className='bg-violet-700 hover:bg-violet-800 rounded p-3 text-sm w-full  transition text-white' >Sign Up</button>
+                    <Link to='/' type='submit' className='bg-violet-700 hover:bg-violet-800 rounded p-3 text-sm w-full  transition text-white cursor-pointer text-center' >Sign Up</Link>
                 </form>
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaGithub, FaFacebookF, FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 function LogIn() {
     return (
@@ -24,7 +25,7 @@ function LogIn() {
                             rounded  px-2 h-10 text-sm' type="text" placeholder='Password' />
                         <div className='flex items-center justify-center text-gray-600 hover:text-violet-700'><h3>Forget your password?</h3></div>
 
-                        <button type='submit' className='bg-violet-700 hover:bg-violet-800 rounded p-3 text-sm w-full  transition text-white cursor-pointer' >Sign In</button>
+                        <Link type='submit' className='bg-violet-700 hover:bg-violet-800 rounded p-3 text-sm w-full  transition text-white cursor-pointer text-center' >Sign In</Link>
                     </form>
 
 
